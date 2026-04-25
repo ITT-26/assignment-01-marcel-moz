@@ -41,8 +41,8 @@ while True:
             sendMessage("button_1", button_value)
 
     
-        elif button_value == 0 and random.random()<= 0.1: # if button was not clicked last iteration determine click with randomizer
-            button_value = 1                              # 10% chance for click
+        elif button_value == 0 and random.random()<= 0.05: # if button was not clicked last iteration determine click with randomizer
+            button_value = 1                              # 5% chance for click => avg of 1 click in 2 sec (with 0.1 DT)
             sendMessage("button_1", button_value)
 
         t += DT   # update time variable to keep track
