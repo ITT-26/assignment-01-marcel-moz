@@ -32,7 +32,7 @@ boat = factory.createBoat(5.5 * WIN_SECTION, 50)
 
 centerText = pyglet.text.Label(
     "Press Button 1 to start",
-    font_name="Felix Titling",
+    font_name="Arial",
     font_size=80,
     x=win.width // 2,
     y=win.height // 2,
@@ -44,7 +44,7 @@ centerText = pyglet.text.Label(
 ) # text am besten auch in game State
 scoreText = pyglet.text.Label(
     "0",
-    font_name="Felix Titling",
+    font_name="Arial",
     font_size=100,
     x=100,
     y=win.height - 100,
@@ -97,6 +97,11 @@ def update(dt):
 
     input.checkButton1ForClick()
     if input.checkButton1ForRelease():
+
+        if game.isFinished:
+            centerText.text = "GAME OVER \n YOUR SCORE IS: {}".format(game.score)    # center text auf pause setzen
+            centerText.opacity = 255  # center text show
+            return
         if not game.isStarted:
             game.start()  # wenn noch nicht gestartet bei Button release starten
             centerText.opacity = 0  # hide center text
@@ -139,6 +144,7 @@ def update(dt):
         for rock in game.rocks:
             if checkForCollision(boat, rock):
                 game.end()
+                return
 
             rock.y -= PIXEL_PER_SEC * dt
 

@@ -21,6 +21,9 @@ class GameState:
 
     def end(self):
         self.hasEnded = True
+        for rock in self.rocks:
+            rock.destroy()
+        self.rocks.clear()
 
     def addTime(self, dt):
         self.time += dt

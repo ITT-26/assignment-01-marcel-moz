@@ -8,10 +8,9 @@
 
 ## Task 2 2D Game
 - How To Run: 
-    - check requirements.txt
     - Start the DIPPID app on your phone
     - Run the main.py file on your computer
-    - Hold your phone upright (top side with the selfie camera pointing upwards)
+    - Hold your phone upright (top side with the selfie camera side pointing upwards)
     - Press Button 1 to play
-    - Use ur phone to move the raft and dodge the rocks
-- You can ESCAPE on your keyboard to close the game 
+    - Use your phone to move the raft and dodge the rocks
+- You can press ESCAPE on your keyboard to close the game 
