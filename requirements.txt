@@ -1,7 +1,0 @@
-Task 1 - DIPPID Sender: 
-- Packages: only standard packages no additional installation required
-
-
-Task 2 - 2D Game:
-- Packages_
-    - pyglet  2.1.14
