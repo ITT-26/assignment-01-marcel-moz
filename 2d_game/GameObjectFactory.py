@@ -7,21 +7,30 @@ class GameObjectFactory:
         self.window = window
         self.batch = batch
 
-    def createBoat(self, x, y, width, height):
-        boat = shapes.Rectangle(
-            x, y, width, height, (0, 0, 0), batch=self.batch
-        )  # hier statt übergabe parameter über window arbeiten
+    def createBoat(self, x, y):
+        RAFT_PATH = ".\\assets\\raft1.png"
+        # Raft Sprite by Sevarihk https://opengameart.org/content/animated-pixel-art-raft-sprite
+        raftImage = image.load(RAFT_PATH)
+        boat = pyglet.sprite.Sprite(raftImage, x=x, y=y, batch=self.batch)
+
+        aspect_ratio = boat.height / boat.width
+        boat.width = self.window.width // 12
+        boat.height = self.window.width // 12 * aspect_ratio
+
         return boat
 
-    def generateRock(self,group):
-        ROCK_SIZE  = self.window.height//18
+    def generateRock(self, group):
+        ROCK_PATH = ".\\assets\\rock.png"
+        ROCK_SIZE = self.window.height // 12
 
-        x =  math.floor(random.random() * self.window.width)
-        y = self.window.height + (math.floor(random.random() * 4 * ROCK_SIZE)) # litte bit of verstatz to break the pattern
-        
-        rock = shapes.Rectangle(
-            x, y, ROCK_SIZE , ROCK_SIZE, (0,0,0), batch=self.batch, group=group
-        )
+        x = math.floor(random.random() * self.window.width)
+        y = self.window.height + (
+            math.floor(random.random() * 5 * ROCK_SIZE)
+        )  # litte bit of verstatz to break the pattern
+        rockImage = image.load(ROCK_PATH)
+
+        rock = pyglet.sprite.Sprite(rockImage, x=x, y=y, batch=self.batch, group=group)
+        rock.width, rock.height = ROCK_SIZE, ROCK_SIZE
         return rock
 
     def createBackgroundSprites(self):
