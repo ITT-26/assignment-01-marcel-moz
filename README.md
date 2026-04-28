@@ -5,3 +5,13 @@
 - How To Run: simply run the DIPPID_sender.py file
 - DIPPID_sender.py sends the data to localhost port 5700
 - You can use DIPPID_receiver.py to view the sent data on the console
+
+## Task 2 2D Game
+- How To Run: 
+    - check requirements.txt
+    - Start the DIPPID app on your phone
+    - Run the main.py file on your computer
+    - Hold your phone upright (top side with the selfie camera pointing upwards)
+    - Press Button 1 to play
+    - Use ur phone to move the raft and dodge the rocks
+- You can ESCAPE on your keyboard to close the game 
