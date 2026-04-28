@@ -1,6 +1,6 @@
 
 
-class GameState:
+class Game:
     def __init__(self):
         self.isPaused = False
         self.isStarted = False
@@ -21,9 +21,9 @@ class GameState:
 
     def end(self):
         self.hasEnded = True
-        for rock in self.rocks:
-            rock.destroy()
-        self.rocks.clear()
+        #for rock in self.rocks:
+        #    rock.delete()
+        #self.rocks.clear()
 
     def addTime(self, dt):
         self.time += dt

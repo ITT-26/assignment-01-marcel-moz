@@ -8,7 +8,7 @@ class GameObjectFactory:
         self.batch = batch
 
     def createBoat(self, x, y):
-        RAFT_PATH = ".\\assets\\raft1.png"
+        RAFT_PATH = '.\\assets\\raft1.png'
         # Raft Sprite by Sevarihk https://opengameart.org/content/animated-pixel-art-raft-sprite
         raftImage = image.load(RAFT_PATH)
         boat = pyglet.sprite.Sprite(raftImage, x=x, y=y, batch=self.batch)
@@ -18,9 +18,13 @@ class GameObjectFactory:
         boat.height = self.window.width // 12 * aspect_ratio
 
         return boat
+    
+    def setObjectPosition(self, object, x,y):
+        object.x = x
+        object.y = y
 
     def generateRock(self, group):
-        ROCK_PATH = ".\\assets\\rock.png"
+        ROCK_PATH = '.\\assets\\rock.png'
         ROCK_SIZE = self.window.height // 12
 
         x = math.floor(random.random() * self.window.width)
@@ -34,7 +38,7 @@ class GameObjectFactory:
         return rock
 
     def createBackgroundSprites(self):
-        BACKGROUND_IMAGE_PATH = ".\\assets\\ocean.png"
+        BACKGROUND_IMAGE_PATH = '.\\assets\\ocean.png'
 
         backgroundImage = image.load(BACKGROUND_IMAGE_PATH)
 

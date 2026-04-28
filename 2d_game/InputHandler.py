@@ -9,33 +9,37 @@ class InputHandler:
     def __init__(self, window, sensor):
         self.window = window
         self.sensor = sensor
-        self.lastButton1State = 0
+        self.lastButtonStates = {'button_1' : 0, 'button_2' : 0, 'button_3': 0, 'button_4' : 0}
 
-    def checkButton1ForClick(self):
+    def checkButtonForClick(self, buttonName):
 
-        if self.sensor.has_capability("button_1"):
-            if (self.lastButton1State == 0) and self.sensor.get_value("button_1") == 1:
-                self.lastButton1State = 1
+        if self.sensor.has_capability(buttonName):
+            lastButtonState = self.lastButtonStates[buttonName]
+            if ( lastButtonState == 0) and self.sensor.get_value(buttonName) == 1:
+                self.lastButtonStates[buttonName] = 1
                 return True
-        return False  # if no button_1
+        return False  # if no button with that name
 
-    def checkButton1ForRelease(self):
-        global lastButton1State
-
-        if self.sensor.has_capability("button_1"):
-            if (self.lastButton1State == 1) and self.sensor.get_value("button_1") == 0:
-                self.lastButton1State = 0
+    def checkButtonForRelease(self, buttonName):
+        if self.sensor.has_capability(buttonName) and buttonName in self.lastButtonStates:
+            lastButtonState = self.lastButtonStates[buttonName] 
+            if (lastButtonState == 1) and self.sensor.get_value(buttonName) == 0:
+                self.lastButtonStates[buttonName]  = 0
                 return True
-        return False  # if no button_1
+        return False  # if no button with that name
 
     def on_key_press(self, symbol, modifiers):
         if symbol == pyglet.window.key.ESCAPE:
             self.window.close()
+            
 
+    
     def getBoatInputAndMove(self,boat, dt):
-        SPEED_FACTOR = 70
-        new_y = boat.y + dt * (self.sensor.get_value("gravity")["z"] - 3) * SPEED_FACTOR
-        new_x = boat.x + dt * self.sensor.get_value("gravity")["x"] * - SPEED_FACTOR
+        SPEED_FACTOR_X = 70
+        SPEED_FACTOR_Y = 30
+        new_x = boat.x + dt * self.sensor.get_value('gravity')['x'] * - SPEED_FACTOR_X
+        new_y = boat.y + dt * (self.sensor.get_value('gravity')['z'] - 3) * SPEED_FACTOR_Y
+        
         if new_y < 0:
             new_y = 0
         elif (new_y + boat.height) > self.window.height:
