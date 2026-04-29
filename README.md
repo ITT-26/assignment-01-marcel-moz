@@ -9,7 +9,7 @@
 
 ## Task 2 2D Game
 - How To Run: 
-    - Start the DIPPID app on your phone
+    - Start the DIPPID app on your phone and enter your IP and port 5700
     - Run the main.py file on your computer
     - Hold your phone upright (top side with the selfie camera side pointing upwards)
     - Press Button 1 to play
