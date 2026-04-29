@@ -8,9 +8,10 @@
 - You can use DIPPID_receiver.py to view the sent data on the console
 
 ## Task 2 2D Game
-- How To Run: 
+- How To Start: 
     - Start the DIPPID app on your phone and enter your IP and port 5700
     - Run the main.py file on your computer
     - Hold your phone upright (top side with the selfie camera side pointing upwards)
     - Press Button 1 to play
-    - Use your phone to move the raft and dodge the rocks
+    - Use your phone by tilting it to move the raft and dodge the rocks
+  
