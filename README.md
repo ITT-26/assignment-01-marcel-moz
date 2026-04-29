@@ -2,13 +2,13 @@
 # DIPPID and Pyglet
 
 ## Task 1 DIPPID Sender
-- How To Start: 
- - run the DIPPID_sender.py file
-- DIPPID_sender.py sends the data to localhost port 5700
-- You can use DIPPID_receiver.py to view the sent data on the console
+- How To Start:
+   - run the DIPPID_sender.py file
+   -  DIPPID_sender.py sends the data to localhost port 5700
+   - You can use DIPPID_receiver.py to view the sent data on the console
 
 ## Task 2 2D Game
-- How To Start: 
+- How To Start:
     - Start the DIPPID app on your phone and enter your IP and port 5700
     - Run the main.py file on your computer
     - Hold your phone upright (top side with the selfie camera side pointing upwards)
