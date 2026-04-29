@@ -12,7 +12,7 @@ class InputHandler:
         self.lastButtonStates = {'button_1' : 0, 'button_2' : 0, 'button_3': 0, 'button_4' : 0}
 
     def checkButtonForClick(self, buttonName):
-
+        
         if self.sensor.has_capability(buttonName):
             lastButtonState = self.lastButtonStates[buttonName]
             if ( lastButtonState == 0) and self.sensor.get_value(buttonName) == 1:
