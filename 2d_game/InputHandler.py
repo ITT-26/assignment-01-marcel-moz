@@ -35,20 +35,21 @@ class InputHandler:
 
     
     def getBoatInputAndMove(self,boat, dt):
-        SPEED_FACTOR_X = 70
-        SPEED_FACTOR_Y = 30
-        new_x = boat.x + dt * self.sensor.get_value('gravity')['x'] * - SPEED_FACTOR_X
-        new_y = boat.y + dt * (self.sensor.get_value('gravity')['z'] - 3) * SPEED_FACTOR_Y
-        
-        if new_y < 0:
-            new_y = 0
-        elif (new_y + boat.height) > self.window.height:
-            new_y = self.window.height - boat.height
-        if new_x < 0:
-            new_x = 0
-        elif (new_x + boat.width) > self.window.width:
-            new_x = self.window.width - boat.width
-        boat.y = new_y
-        boat.x = new_x
+        if self.sensor.has_capability('gravity'):
+            SPEED_FACTOR_X = 70
+            SPEED_FACTOR_Y = 30
+            new_x = boat.x + dt * self.sensor.get_value('gravity')['x'] * - SPEED_FACTOR_X
+            new_y = boat.y + dt * (self.sensor.get_value('gravity')['z'] - 3) * SPEED_FACTOR_Y
+            
+            if new_y < 0:
+                new_y = 0
+            elif (new_y + boat.height) > self.window.height:
+                new_y = self.window.height - boat.height
+            if new_x < 0:
+                new_x = 0
+            elif (new_x + boat.width) > self.window.width:
+                new_x = self.window.width - boat.width
+            boat.y = new_y
+            boat.x = new_x
 
     

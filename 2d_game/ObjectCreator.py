@@ -2,7 +2,7 @@ import pyglet, random, math
 from pyglet import shapes, image, sprite
 
 
-class GameObjectFactory:
+class ObjectCreator:
     def __init__(self, window, batch):
         self.window = window
         self.batch = batch
@@ -55,3 +55,51 @@ class GameObjectFactory:
         backgroundSprite2.width = self.window.width
 
         return [backgroundSprite1, backgroundSprite2]
+
+    def createBottomText(self, textGroup):
+        bottom_text = pyglet.text.Label(
+            'ESC / 4 = close game | 1 = pause / resume',
+            font_name='Arial',
+            font_size=36,
+            x=20,
+            y=20,
+            anchor_x='left',
+            anchor_y='bottom',
+            batch=self.batch,
+            group=textGroup,
+            color=(255, 255, 255),
+        ) 
+        return bottom_text
+    
+    def createScoreText(self,textGroup):
+        scoreText = pyglet.text.Label(
+            '0',
+            font_name='Arial',
+            font_size=100,
+            x=100,
+            y=self.window.height - 100,
+            anchor_x='left',
+            anchor_y='top',
+            batch=self.batch,
+            group=textGroup,
+            color=(255, 255, 255),
+        ) 
+        return scoreText
+    
+    def createCenterText(self,textGroup):
+        centerText = pyglet.text.Label(
+            'Press 1 to start the game',
+            font_name='Arial',
+            font_size=80,
+            multiline=True,
+            x=self.window.width // 2,
+            y=self.window.height // 2,
+            anchor_x='center',
+            anchor_y='center',
+            batch=self.batch,
+            group=textGroup,
+            width=self.window.width//2.5,
+            color=(255, 255, 255),
+            align= 'center'
+        ) 
+        return centerText

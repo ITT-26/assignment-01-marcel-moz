@@ -2,7 +2,8 @@
 # DIPPID and Pyglet
 
 ## Task 1 DIPPID Sender
-- How To Run: simply run the DIPPID_sender.py file
+- How To Start: 
+ - run the DIPPID_sender.py file
 - DIPPID_sender.py sends the data to localhost port 5700
 - You can use DIPPID_receiver.py to view the sent data on the console
 
@@ -13,4 +14,3 @@
     - Hold your phone upright (top side with the selfie camera side pointing upwards)
     - Press Button 1 to play
     - Use your phone to move the raft and dodge the rocks
-- You can press ESCAPE on your keyboard to close the game 
